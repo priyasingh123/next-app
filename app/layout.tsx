@@ -16,7 +16,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      
+      <body className={inter.className}>
+        <div style={{padding: '20px', borderBottom: '1px solid #ccc'}}>
+          Medium Website
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
