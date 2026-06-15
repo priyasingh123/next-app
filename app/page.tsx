@@ -1,7 +1,6 @@
-import Image from "next/image";
-
 async function getUserDetails() {
-  const response = await fetch("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details")
+  //const response = await fetch("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details")
+  const response = await fetch("http://localhost:3000/api/user");
   return response.json();
 }
 
@@ -14,9 +13,7 @@ export default async function Home() {
     <div className="flex flex-col justify-center h-screen">
       <div className="flex justify-center">
         <div className="border p-8 rounded">
-          <div>
-            Name: `Priiii`,${userDetails.name}
-          </div>
+          <div>Name: {userDetails.name}</div>
           {userDetails.email}
         </div>
       </div>

@@ -1,7 +1,9 @@
+import { SigninComponent } from "@/components/SigninComponent";
+
 export default function Home() {
     return (
         <div>
-            Sign Up
+            <SigninComponent />
         </div>
     )
 }

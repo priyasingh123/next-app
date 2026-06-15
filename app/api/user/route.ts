@@ -2,14 +2,14 @@
 // GET route should be named GET
 export function GET (){
     return Response.json({
-        name: "Priiii",
-        email: "priiii@example.com"
+        name: "Priya Singh",
+        email: "priyasingh@example.com"
     })
 }
 
 export function POST (){
     return Response.json({
-        name: "Priiii",
-        email: "priiii@example.com"
+        name: "Priya Singh",
+        email: "priyasingh@example.com"
     })
 }
