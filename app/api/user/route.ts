@@ -11,7 +11,6 @@ export function GET() {
 export async function POST(req: NextRequest) {
   const { username, password } = await req.json();
   return Response.json({
-    name: "Priya Singh",
-    email: "priyasingh@example.com",
+    message: `User ${username} created successfully!`,
   });
 }

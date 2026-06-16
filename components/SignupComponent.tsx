@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export const SignupComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md p-8 bg-white rounded-lg border border-gray-200">
@@ -29,15 +31,16 @@ export const SignupComponent = () => {
           />
           <button
             type="submit"
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault();
-              fetch("/api/user", {
+              await fetch("/api/user", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
                 body: JSON.stringify({ username, password }),
               });
+              router.push("/");
             }}
             className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700"
           >
