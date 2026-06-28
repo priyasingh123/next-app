@@ -1,9 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { NextRequest, NextResponse } from "next/server";
-
-const client = new PrismaClient({
-  datasourceUrl: process.env.DATABASE_URL,
-});
+import client from "@/db";
 
 async function getUserDetails() {
   //call an external API to get user details

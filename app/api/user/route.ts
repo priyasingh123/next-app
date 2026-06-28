@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const client = new PrismaClient({
-  datasourceUrl: process.env.DATABASE_URL,
-});
+import client from "@/db";
 
 // GET route should be named GET
 export async function GET() {
