@@ -10,7 +10,6 @@ async function getUserDetails() {
 
   //call the database to get user details, no need to call an API, just call the database directly
   const user = await client.user.findFirst();
-  console.log("user", user);
   return user;
 }
 
@@ -18,7 +17,6 @@ async function getUserDetails() {
 export default async function Home() {
   await new Promise((r) => setTimeout(r, 1000));
   const userDetails = await getUserDetails();
-  console.log("userDetails", userDetails);
   return (
     <div className="flex flex-col justify-center h-screen">
       <div className="flex justify-center">

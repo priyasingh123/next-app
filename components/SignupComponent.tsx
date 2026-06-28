@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { createUser } from "@/app/actions/user";
 
 export const SignupComponent = () => {
   const [username, setUsername] = useState("");
@@ -41,14 +42,18 @@ export const SignupComponent = () => {
           <button
             type="submit"
             onClick={async (e) => {
-              e.preventDefault();
-              await fetch("/api/user", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password, email }),
-              });
+              // WITHOUT SERVER ACTIONS
+              // e.preventDefault();
+              // await fetch("/api/user", {
+              //   method: "POST",
+              //   headers: {
+              //     "Content-Type": "application/json",
+              //   },
+              //   body: JSON.stringify({ username, password, email }),
+              // });
+
+              // WITH SERVER ACTIONS
+              await createUser({ username, password, email });
               router.push("/");
             }}
             className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700"
