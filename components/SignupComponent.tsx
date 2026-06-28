@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 export const SignupComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const router = useRouter();
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
@@ -16,6 +17,14 @@ export const SignupComponent = () => {
           <input
             type="email"
             placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -38,7 +47,7 @@ export const SignupComponent = () => {
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username, password }),
+                body: JSON.stringify({ username, password, email }),
               });
               router.push("/");
             }}
